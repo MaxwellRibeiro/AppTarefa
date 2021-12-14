@@ -16,5 +16,10 @@ namespace AppTarefa.Telas
         {
             InitializeComponent();
         }
+
+        private void FecharModal(object sender, EventArgs e)
+        {
+            Navigation.PopModalAsync(); 
+        }
     }
 }
