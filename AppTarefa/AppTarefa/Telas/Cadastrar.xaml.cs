@@ -10,16 +10,11 @@ using Xamarin.Forms.Xaml;
 namespace AppTarefa.Telas
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class Listar : ContentPage
+    public partial class Cadastrar : ContentPage
     {
-        public Listar()
+        public Cadastrar()
         {
             InitializeComponent();
         }
-
-        private void BtnCadastrar(object sender, EventArgs e)
-        {
-            Navigation.PushModalAsync(new Cadastrar());
-;        }
     }
 }

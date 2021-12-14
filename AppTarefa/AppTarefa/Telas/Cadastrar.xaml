@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             Visual="Material"
+             x:Class="AppTarefa.Telas.Cadastrar">
+    <ContentPage.Content>
+        <Frame BackgroundColor="#F5F6FA" CornerRadius="10" Margin="30"  HasShadow="True">
+            <StackLayout>
+                <Label>
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="Criar" FontSize="16" TextColor="Black"/>
+                            <Span Text="&#10;"/>
+                            <Span Text="Tarefa" FontSize="22" TextColor="Black"/>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+
+                <DatePicker />
+                <TimePicker />
+                <Entry Placeholder="Tarefa"/>
+                <Editor Placeholder="Nota"/>
+            </StackLayout>
+        </Frame>
+    </ContentPage.Content>
+</ContentPage>
