@@ -1,0 +1,37 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DebugType>pdbonly</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Recursos\Fontes\Montserrat-Bold.ttf" />
+    <None Remove="Recursos\Fontes\Montserrat-Medium.ttf" />
+    <None Remove="Recursos\Fontes\Montserrat-Regular.ttf" />
+    <None Remove="Recursos\Fontes\Montserrat-Thin.ttf" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Recursos\Fontes\Montserrat-Bold.ttf" />
+    <EmbeddedResource Include="Recursos\Fontes\Montserrat-Medium.ttf" />
+    <EmbeddedResource Include="Recursos\Fontes\Montserrat-Regular.ttf" />
+    <EmbeddedResource Include="Recursos\Fontes\Montserrat-Thin.ttf" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Xamarin.Forms" Version="3.4.0.1008975" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Telas\Listar.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+
+  <ProjectExtensions><VisualStudio><UserProperties XamarinHotReloadXFormsNugetUpgradeInfoBarAppTarefaHideInfoBar="True" /></VisualStudio></ProjectExtensions>
+</Project>
