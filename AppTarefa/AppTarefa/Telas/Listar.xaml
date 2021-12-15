@@ -5,7 +5,7 @@
              BackgroundColor="#F5F6FA"
              x:Class="AppTarefa.Telas.Listar">
     <ContentPage.Content>
-        <Grid>
+        <Grid RowSpacing="0">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
@@ -49,6 +49,11 @@
                     <Grid.RowDefinitions>
                         <RowDefinition />
                     </Grid.RowDefinitions>
+                    <Label Text="Tarefa 01">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="BtnVisualizar" />
+                        </Label.GestureRecognizers>
+                    </Label>
                     
                     <Button Text="+" Clicked="BtnCadastrar" BackgroundColor="#4043C9" CornerRadius="50" FontSize="36" TextColor="White" VerticalOptions="End" HorizontalOptions="End" TranslationY="-30" WidthRequest="75" HeightRequest="75"/>
                 </Grid>
