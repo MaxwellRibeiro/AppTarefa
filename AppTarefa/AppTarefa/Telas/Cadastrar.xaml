@@ -16,19 +16,30 @@
                             </FormattedString>
                         </Label.FormattedText>
                     </Label>
-                    <Label Text="X" Padding="20,10" FontSize="16" HorizontalOptions="End" VerticalOptions="Center">
+                    <Label Text="X" Padding="20,0,0,20" TextColor="Black" FontSize="20" HorizontalOptions="End" VerticalOptions="Start">
                         <Label.GestureRecognizers>
                             <TapGestureRecognizer Tapped="FecharModal" />
                         </Label.GestureRecognizers>
                     </Label>
                 </StackLayout>
-                
-                <DatePicker BackgroundColor="White"/>
-                <TimePicker BackgroundColor="White"/>
-                <Entry Placeholder="Tarefa" BackgroundColor="White"/>
-                <Editor Placeholder="Nota" AutoSize="TextChanges" BackgroundColor="White"/>
 
-                <Button Text="Adicionar" BackgroundColor="#4043C9" TextColor="White" VerticalOptions="EndAndExpand" HorizontalOptions="End"/>
+                <Frame Padding="0" CornerRadius="0" BorderColor="#EDEDED">
+                    <DatePicker BackgroundColor="White"/>
+                </Frame>
+                <Frame Padding="0" CornerRadius="0" BorderColor="#EDEDED">
+                    <TimePicker BackgroundColor="White"/>
+                </Frame>
+                <Frame Padding="0" CornerRadius="0" BorderColor="#EDEDED">
+                    <TimePicker BackgroundColor="White"/>
+                </Frame>
+                <Frame Padding="0" CornerRadius="0" BorderColor="#EDEDED">
+                    <Entry Placeholder="Tarefa" BackgroundColor="White"/>
+                </Frame>
+                <Frame Padding="0" CornerRadius="0" BorderColor="#EDEDED">
+                    <Editor Placeholder="Nota" AutoSize="TextChanges" BackgroundColor="White"/>
+                </Frame>
+                
+                <Button Text="Adicionar" Visual="Default" Padding="10,20" BackgroundColor="#4043C9" TextColor="White" VerticalOptions="EndAndExpand" HorizontalOptions="End"/>
             </StackLayout>
         </Frame>
     </ContentPage.Content>
