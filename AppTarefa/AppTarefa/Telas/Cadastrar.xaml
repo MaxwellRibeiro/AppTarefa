@@ -24,22 +24,22 @@
                 </StackLayout>
 
                 <Frame Padding="0" CornerRadius="0" BorderColor="#EDEDED">
-                    <DatePicker BackgroundColor="White"/>
+                    <DatePicker x:Name='Data' BackgroundColor="White"/>
                 </Frame>
                 <Frame Padding="0" CornerRadius="0" BorderColor="#EDEDED">
-                    <TimePicker BackgroundColor="White"/>
+                    <TimePicker x:Name='HorarioInicial' BackgroundColor="White"/>
                 </Frame>
                 <Frame Padding="0" CornerRadius="0" BorderColor="#EDEDED">
-                    <TimePicker BackgroundColor="White"/>
+                    <TimePicker x:Name='HorarioFinal' BackgroundColor="White"/>
                 </Frame>
                 <Frame Padding="0" CornerRadius="0" BorderColor="#EDEDED">
-                    <Entry Placeholder="Tarefa" BackgroundColor="White"/>
+                    <Entry x:Name='Nome' Placeholder="Tarefa" BackgroundColor="White"/>
                 </Frame>
                 <Frame Padding="0" CornerRadius="0" BorderColor="#EDEDED">
-                    <Editor Placeholder="Nota" AutoSize="TextChanges" BackgroundColor="White"/>
+                    <Editor x:Name='Nota' Placeholder="Nota" AutoSize="TextChanges" BackgroundColor="White"/>
                 </Frame>
                 
-                <Button Text="Adicionar" Visual="Default" Padding="10,20" BackgroundColor="#4043C9" TextColor="White" VerticalOptions="EndAndExpand" HorizontalOptions="End"/>
+                <Button Text="Adicionar" Clicked="SalvarTarefa" Visual="Default" Padding="10,20" BackgroundColor="#4043C9" TextColor="White" VerticalOptions="EndAndExpand" HorizontalOptions="End"/>
             </StackLayout>
         </Frame>
     </ContentPage.Content>

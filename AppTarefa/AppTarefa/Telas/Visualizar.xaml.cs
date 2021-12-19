@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AppTarefa.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,6 +16,13 @@ namespace AppTarefa.Telas
         public Visualizar()
         {
             InitializeComponent();
+        }
+
+        public Visualizar(Tarefa tarefa)
+        {
+            InitializeComponent();
+
+            BindingContext = tarefa;
         }
 
         private void BtnVoltar(object sender, EventArgs e)

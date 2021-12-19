@@ -28,16 +28,24 @@
                     </StackLayout.GestureRecognizers>
                     <Image Source="back.png" />
                 </StackLayout>
-                <Label Text="Comprar café" Grid.Column="1" Margin="0, 20, 0, 0" FontSize="20" TextColor="Black" />
+                <Label Text="{Binding Nome}" Grid.Column="1" Margin="0, 20, 0, 0" FontSize="20" TextColor="Black" />
 
             </Grid>
 
             <Frame HasShadow="False" CornerRadius="30" TranslationY="30" BackgroundColor="White" Grid.Row="1">
                 <StackLayout>
-                    <Label Text="03/03/2020" FontSize="16" TextColor="Black"/>
-                    <Label Text="8:00 - 8:30" FontSize="16" TextColor="#939393"/>
+                    <Label Text="{Binding Data}" FontSize="16" TextColor="Black"/>
+                    <Label FontSize="16" TextColor="#939393">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span Text="{Binding HorarioInicial}"/>
+                                <Span Text=" - "/>
+                                <Span Text="{Binding HorarioFinal}"/>
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
                     <Label Text="Nota" FontSize="20" TextColor="Black"/>
-                    <Label Text="Café santa clara - comprar 4 unidades se valor menor que 8 reais." 
+                    <Label Text="{Binding Nota}" 
                            FontSize="14"/>
                 </StackLayout>
             </Frame>

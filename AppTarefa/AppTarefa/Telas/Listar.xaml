@@ -49,11 +49,34 @@
                     <Grid.RowDefinitions>
                         <RowDefinition />
                     </Grid.RowDefinitions>
-                    <Label Text="Tarefa 01">
-                        <Label.GestureRecognizers>
-                            <TapGestureRecognizer Tapped="BtnVisualizar" />
-                        </Label.GestureRecognizers>
-                    </Label>
+
+                    <CollectionView x:Name="CVListaDeTarefas">
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="1*"/>
+                                        <ColumnDefinition Width="4*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <CheckBox />
+                                    <Label Grid.Column="1">
+                                        <Label.GestureRecognizers>
+                                            <TapGestureRecognizer Tapped="BtnVisualizar" CommandParameter="{Binding .}"/>
+                                        </Label.GestureRecognizers>
+                                        <Label.FormattedText>
+                                            <FormattedString>
+                                                <Span Text="{Binding Nome}" />
+                                                <Span Text="&#10;" />
+                                                <Span Text="{Binding HorarioInicial}" />
+                                                <Span Text=" - " />
+                                                <Span Text="{Binding HorarioFinal}" />
+                                            </FormattedString>
+                                        </Label.FormattedText>
+                                    </Label>
+                                </Grid>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
                     
                     <Button Text="+" Clicked="BtnCadastrar" BackgroundColor="#4043C9" CornerRadius="50" FontSize="36" TextColor="White" VerticalOptions="End" HorizontalOptions="End" TranslationY="-30" WidthRequest="75" HeightRequest="75"/>
                 </Grid>
