@@ -50,34 +50,41 @@
                         <RowDefinition />
                     </Grid.RowDefinitions>
 
-                    <CollectionView x:Name="CVListaDeTarefas">
+                    <CollectionView x:Name="CVListaDeTarefas" EmptyView="Nenhuma tarefa">
                         <CollectionView.ItemTemplate>
                             <DataTemplate>
-                                <Grid>
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="1*"/>
-                                        <ColumnDefinition Width="4*"/>
-                                    </Grid.ColumnDefinitions>
-                                    <CheckBox />
-                                    <Label Grid.Column="1">
-                                        <Label.GestureRecognizers>
-                                            <TapGestureRecognizer Tapped="BtnVisualizar" CommandParameter="{Binding .}"/>
-                                        </Label.GestureRecognizers>
-                                        <Label.FormattedText>
-                                            <FormattedString>
-                                                <Span Text="{Binding Nome}" />
-                                                <Span Text="&#10;" />
-                                                <Span Text="{Binding HorarioInicial}" />
-                                                <Span Text=" - " />
-                                                <Span Text="{Binding HorarioFinal}" />
-                                            </FormattedString>
-                                        </Label.FormattedText>
-                                    </Label>
-                                </Grid>
+                                <SwipeView>
+                                    <SwipeView.RightItems>
+                                        <SwipeItems>
+                                            <SwipeItem BackgroundColor="#EE6C4D" Text="Excluir" Invoked="BtnExcluir" CommandParameter="{Binding .}" />
+                                        </SwipeItems>
+                                    </SwipeView.RightItems>
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="1*"/>
+                                            <ColumnDefinition Width="4*"/>
+                                        </Grid.ColumnDefinitions>
+                                        <CheckBox />
+                                        <Label Grid.Column="1">
+                                            <Label.GestureRecognizers>
+                                                <TapGestureRecognizer Tapped="BtnVisualizar" CommandParameter="{Binding .}"/>
+                                            </Label.GestureRecognizers>
+                                            <Label.FormattedText>
+                                                <FormattedString>
+                                                    <Span Text="{Binding Nome}" />
+                                                    <Span Text="&#10;" />
+                                                    <Span Text="{Binding HorarioInicial}" />
+                                                    <Span Text=" - " />
+                                                    <Span Text="{Binding HorarioFinal}" />
+                                                </FormattedString>
+                                            </Label.FormattedText>
+                                        </Label>
+                                    </Grid>
+                                </SwipeView>
                             </DataTemplate>
                         </CollectionView.ItemTemplate>
                     </CollectionView>
-                    
+
                     <Button Text="+" Clicked="BtnCadastrar" BackgroundColor="#4043C9" CornerRadius="50" FontSize="36" TextColor="White" VerticalOptions="End" HorizontalOptions="End" TranslationY="-30" WidthRequest="75" HeightRequest="75"/>
                 </Grid>
             </Frame>
