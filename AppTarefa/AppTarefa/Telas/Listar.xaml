@@ -25,22 +25,29 @@
                 <Label Margin="20, 40, 0, 0">
                     <Label.FormattedText>
                         <FormattedString>
-                            <Span Text="Segunda-feira" FontSize="20" TextColor="Black" />
+                            <Span x:Name="DiaDaSemana" Text="Segunda-feira" FontSize="20" TextColor="Black" />
                             <Span Text="&#10;" />
-                            <Span Text="3 tarefas" FontSize="14" TextColor="#888888"/>
+                            <Span x:Name="QuatidadeTarefas" Text="3" FontSize="14" TextColor="#888888"/>
+                            <Span Text=" tarefas" FontSize="14" TextColor="#888888"/>
                         </FormattedString>
                     </Label.FormattedText>
                 </Label>
                 <Frame Grid.Column="1" Margin="10, 20, 20, 0" BackgroundColor="#4043C9" CornerRadius="20" HasShadow="False">
-                    <Label TextColor="White" HorizontalTextAlignment="Center">
-                        <Label.FormattedText>
-                            <FormattedString>
-                                <Span Text="9" FontSize="20" />
-                                <Span Text="&#10;" />
-                                <Span Text="Fev" FontSize="14"/>
-                            </FormattedString>
-                        </Label.FormattedText>
-                    </Label>
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="AbrirCalendario" />
+                    </Frame.GestureRecognizers>
+                    <StackLayout>
+                        <DatePicker x:Name="DPCalendario" DateSelected="DateSelectedAction" IsVisible="false"/>
+                        <Label TextColor="White" HorizontalTextAlignment="Center">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span x:Name="Dia" Text="9" FontSize="20" />
+                                    <Span Text="&#10;" />
+                                    <Span x:Name="Mes" Text="Fev" FontSize="14"/>
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                    </StackLayout>
                 </Frame>
             </Grid>
 
@@ -64,8 +71,8 @@
                                             <ColumnDefinition Width="1*"/>
                                             <ColumnDefinition Width="4*"/>
                                         </Grid.ColumnDefinitions>
-                                        <CheckBox />
-                                        <Label Grid.Column="1">
+                                        <CheckBox IsChecked="{Binding Finalizada}" CheckedChanged="CheckBox_CheckedChanged" />
+                                        <Label x:Name="LblTarefaDetalhe" Grid.Column="1">
                                             <Label.GestureRecognizers>
                                                 <TapGestureRecognizer Tapped="BtnVisualizar" CommandParameter="{Binding .}"/>
                                             </Label.GestureRecognizers>

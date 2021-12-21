@@ -54,18 +54,6 @@ namespace AppTarefa.Telas
             });
         }
 
-        private void AtualizarDataCalendario(DateTime data)
-        {
-            Task.Run(() => {
-                Device.BeginInvokeOnMainThread(async () => {
-                    Lista = new ObservableCollection<Tarefa>(
-                        await new TarefaDB().PesquisarAsync(data)
-                    );
-                    CVListaDeTarefas.ItemsSource = Lista;
-                });
-            });
-        }
-
         private void BtnCadastrar(object sender, EventArgs e)
         {
             Navigation.PushModalAsync(new Cadastrar());
@@ -94,6 +82,54 @@ namespace AppTarefa.Telas
                     Lista.Remove(tarefa);
                 }
             }
+        }
+
+        private async void CheckBox_CheckedChanged(object sender, CheckedChangedEventArgs e)
+        {
+            var checkBox = (CheckBox)sender;
+            var label = checkBox.Parent.FindByName<Label>("LblTarefaDetalhe");
+            if(label != null)
+            {
+                var tapGesture = (TapGestureRecognizer)label.GestureRecognizers[0];
+                if(tapGesture != null)
+                {
+                    var tarefa = (Tarefa)tapGesture.CommandParameter;
+                    if (tarefa != null)
+                    {
+                        tarefa.Finalizada = e.Value;
+
+                        await new TarefaDB().AtualizarAsync(tarefa);
+                    }
+                }
+             
+            }
+        }
+
+        private void AbrirCalendario(object sender, EventArgs e)
+        {
+            DPCalendario.Focus();
+        }
+
+        private void DateSelectedAction(object sender, DateChangedEventArgs e)
+        {
+            AtualizarDataCalendario(e.NewDate);
+        }
+
+        private void AtualizarDataCalendario(DateTime data)
+        {
+            Task.Run(() => {
+                Device.BeginInvokeOnMainThread(async () => {
+                    Lista = new ObservableCollection<Tarefa>(
+                        await new TarefaDB().PesquisarAsync(data)
+                    );
+                    CVListaDeTarefas.ItemsSource = Lista;
+                    QuatidadeTarefas.Text = Lista.Count.ToString();
+                });
+            });
+
+            Dia.Text = data.Day.ToString();
+            Mes.Text = data.Month.ToString();
+            DiaDaSemana.Text = data.DayOfWeek.ToString();
         }
     }
 }
